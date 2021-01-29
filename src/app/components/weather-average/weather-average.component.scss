@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 48px 0;
+}
+
+.average-date-range {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  color: #08153E;
+  opacity: 0.6;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+
+.average-temp {
+  font-weight: 600;
+  font-size: 120px;
+  line-height: 120px;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+}
+
+.celsius-sign {
+  font-size: 32px;
+  position: relative;
+  top: -31px;
+}

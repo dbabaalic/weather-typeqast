@@ -1,1 +1,9 @@
-Temperature: {{weather.temp | number: "1.0-0" }} Day: {{weather.datetime | date: 'EEEE'}}
+<div class="wrapper">
+  <div class="weather-date">
+    {{weather.datetime | date: 'EEEE'}}
+  </div>
+
+  <div class="weather-temp">
+    {{weather.temp | number: "1.0-0" }}<span class="celsius-sign">&#8451;</span>
+  </div>
+</div>

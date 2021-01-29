@@ -3,16 +3,16 @@ import { WeatherSearchTerm } from 'src/app/models/search-term.model';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged} from 'rxjs/operators'
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Countries } from 'src/app/enums/countries.enum';
+import { countries, Country } from 'src/app/models/countries.model';
 
 @Component({
   selector: 'app-weather-search',
   templateUrl: './weather-search.component.html',
-  styleUrls: ['./weather-search.component.scss']
+  styleUrls: ['./weather-search.component.scss'] 
 })
 export class WeatherSearchComponent {
 
-  countries = Countries;
+  countries = countries;
   searchForm: FormGroup; 
   cityChanged: Subject<string> = new Subject<string>();
 
@@ -21,7 +21,7 @@ export class WeatherSearchComponent {
   constructor(private fb: FormBuilder) {
     this.searchForm = this.createSearchForm();
     this.cityChanged.pipe(
-      debounceTime(500),
+      debounceTime(1000),
       distinctUntilChanged()
     ).subscribe(city => {
       this.search.emit( new WeatherSearchTerm(this.country.value, city));
@@ -32,7 +32,7 @@ export class WeatherSearchComponent {
     this.cityChanged.next(city);
   }
 
-  onCountryChange(country: string) {
+  onCountryChange(country: Country) {
     this.search.emit( new WeatherSearchTerm(country, this.city.value));
   }
 
@@ -46,7 +46,7 @@ export class WeatherSearchComponent {
 
   private createSearchForm(): FormGroup {
     return this.fb.group({
-      country: [Countries.Serbia],
+      country: [countries[0]],
       city: ['']
     });
   }

@@ -1,0 +1,6 @@
+.weather-list {
+  grid-template-columns: repeat(7, 1fr);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}

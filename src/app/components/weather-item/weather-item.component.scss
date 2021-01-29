@@ -1,0 +1,30 @@
+.weather-date {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  color: #08153E;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.weather-temp {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.celsius-sign {
+  font-size: 17px;
+  position: relative;
+  top: -9px;
+}

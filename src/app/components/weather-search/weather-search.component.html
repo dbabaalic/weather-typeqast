@@ -1,12 +1,28 @@
-<form [formGroup]="searchForm">
+<form [formGroup]="searchForm" class="search-form">
+  <img src="assets/icons/weather-icon.svg" class="weather-icon" />
 
-  <select (change)="onCountryChange($event.target.value)" formControlName="country">
-    <option *ngFor="let country of countries | keyvalue" [value]="country.value">
-      <img [src]="'/assets/flags/' + country.value + '.png'" height="25px" width="35px"/>
-      {{country.key}} {{'/assets/flags/' + country.value + '.png'}}
-    </option>
-  </select>
+  <div class="country-select">
+    <mat-select formControlName="country" (selectionChange)="onCountryChange($event.value)">
+      <mat-select-trigger>
+        <div class="select-mat-country">
+          <img [src]="'/assets/flags/' + country.value.code + '.ico'">
+          <span>{{ country.value.code }}</span>
+        </div>
+      </mat-select-trigger>
+      <mat-option *ngFor="let country of countries" [value]="country">
+        <div class="select-mat-country">
+          <img [src]="'/assets/flags/' + country.code + '.ico'" />
+          <span>{{country.code}}</span>
+        </div>
+      </mat-option>
+    </mat-select>
+  </div>
 
-  <input formControlName='city' (ngModelChange)='onCityChange($event)' />
-  
+  <div class="city-input-wrapper">
+    <input matInput placeholder="Please enter your location" formControlName="city"
+      (ngModelChange)="onCityChange($event)" class="city-input">
+    <mat-icon matSuffix class="search-icon">search</mat-icon>
+  </div>
+
+
 </form>

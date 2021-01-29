@@ -10,7 +10,12 @@ import { WeatherListComponent } from './components/weather-list/weather-list.com
 import { WeatherItemComponent } from './components/weather-item/weather-item.component';
 import { WeatherAverageComponent } from './components/weather-average/weather-average.component';
 import { WeatherAveragePipe } from './pipes/weather-average.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,12 @@ import { WeatherAveragePipe } from './pipes/weather-average.pipe';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
