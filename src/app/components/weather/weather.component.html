@@ -1,0 +1,10 @@
+<app-weather-search (search)="onSearch($event)"></app-weather-search>
+
+<div *ngIf="(weatherData$ | async) as weatherData;else noData">
+  <app-weather-average [weatherData]="weatherData"></app-weather-average>
+  <app-weather-list [weatherData]="weatherData.slice(0,7)"></app-weather-list>
+</div>
+
+<ng-template #noData>
+  No data
+</ng-template>

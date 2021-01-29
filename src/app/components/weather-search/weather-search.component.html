@@ -1,0 +1,12 @@
+<form [formGroup]="searchForm">
+
+  <select (change)="onCountryChange($event.target.value)" formControlName="country">
+    <option *ngFor="let country of countries | keyvalue" [value]="country.value">
+      <img [src]="'/assets/flags/' + country.value + '.png'" height="25px" width="35px"/>
+      {{country.key}} {{'/assets/flags/' + country.value + '.png'}}
+    </option>
+  </select>
+
+  <input formControlName='city' (ngModelChange)='onCityChange($event)' />
+  
+</form>

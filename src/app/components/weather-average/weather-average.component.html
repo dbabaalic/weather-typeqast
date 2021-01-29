@@ -1,0 +1,5 @@
+<p *ngIf="weatherData.length > 0">
+  {{weatherData[0].datetime | date: "MMMM d YYYY"}} - {{weatherData[weatherData.length - 1].datetime | date: "MMMM d YYYY"}}
+  <br/>
+  Average: {{weatherData | weatherAverage | number: "1.0-0"}}
+</p>
